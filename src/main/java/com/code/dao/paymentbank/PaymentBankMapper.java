@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * <p>
- *
+ * 银行表
  * </p>
  * @author: zeng
  * @since: 2020-03-18
