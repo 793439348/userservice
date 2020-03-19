@@ -23,9 +23,8 @@ spring:
 mybatis:
   # 映射文件所在路径
   mapper-locations: classpath*:com.code.dao.*/*.xml
-  # pojo类所在包路径
-
-  type-aliases-package: com.code.bean.pojo
+  # 实体类所在包路径
+  type-aliases-package: com.code.bean.*
   # 开启驼峰命名规则自动转换
   configuration:
     map-underscore-to-camel-case: true

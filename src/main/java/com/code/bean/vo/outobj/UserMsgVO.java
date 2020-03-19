@@ -16,7 +16,7 @@ import java.util.Date;
 @Data
 public class UserMsgVO implements Serializable {
     private Integer type;
-    private Date time;
+    private String time;
     private String title;
     private String content;
     private String extra;

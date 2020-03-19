@@ -21,6 +21,6 @@ public class UserBillVO implements Serializable {
     private BigDecimal money;
     private BigDecimal beforeMoney;
     private BigDecimal afterMoney;
-    private Date time;
+    private String time;
     private String remarks;
 }

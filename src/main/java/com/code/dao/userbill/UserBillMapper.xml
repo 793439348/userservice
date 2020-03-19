@@ -2,6 +2,15 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.code.dao.userbill.UserBillMapper">
 
-
+    <select id="getUserBillList" parameterType="UserAcclogVO" resultType="UserBillVO">
+        select billno,type,money,before_money,after_money,time,remarks
+        from user_bill
+        where user_id=#{headerVO.userId} and merchant_id=#{headerVO.merchantId}
+        and time between #{startTime} and #{endTime}
+        <if test=" type!=null and type!='' ">
+            and type = #{type}
+        </if>
+        limit ${page},${pageSize}
+    </select>
 
 </mapper>

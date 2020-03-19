@@ -1,5 +1,6 @@
 package com.code.bean.vo.inputobj;
 
+import com.code.bean.vo.HeaderVO;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -10,10 +11,11 @@ import java.io.Serializable;
  * </p>
  *
  * @author: zeng
- * @since: 2020-03-18
+ * @since: 2020-03-19
  */
 @Data
-public class UserResetPwdVO implements Serializable {
+public class ResetPwdVO implements Serializable {
+    private HeaderVO headerVO;
     private String phone;
     private String code;
     private String newPwd;

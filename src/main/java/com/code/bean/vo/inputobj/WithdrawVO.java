@@ -1,5 +1,6 @@
 package com.code.bean.vo.inputobj;
 
+import com.code.bean.vo.HeaderVO;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -13,7 +14,8 @@ import java.io.Serializable;
  * @since: 2020-03-18
  */
 @Data
-public class UserWithdrawVO implements Serializable {
+public class WithdrawVO implements Serializable {
+    private HeaderVO headerVO;
     private Integer bankCardId; //银行卡id
     private Integer amount; //提现金额
     private String withdrawPwd;//提现密码

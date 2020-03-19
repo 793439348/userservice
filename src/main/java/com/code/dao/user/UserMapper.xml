@@ -2,6 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.code.dao.user.UserMapper">
 
+    <update id="modifyUserInfo" parameterType="UserVO">
+        update `user`
+        <trim prefix="set" suffixOverrides=",">
+            <if test=" head != null and head!='' ">
+                head=#{head},
+            </if>
+            <if test=" nikeName != null and nikeName!='' ">
+                nickname=#{nikeName},
+            </if>
+            <if test=" phone != null and phone!='' ">
+                phone=#{phone},
+            </if>
+            <if test=" newPwd != null and newPwd!='' ">
+                password=#{newPwd},
+            </if>
+            <if test=" withdrawPwd != null and withdrawPwd!='' ">
+                withdraw_password=#{withdrawPwd},
+            </if>
+        </trim>
+        where id=#{headerVO.userId} and merchant_id=#{headerVO.merchantId}
+    </update>
 
+    <select id="getOldPwd" resultType="string">
+        select password
+        from user
+        where id = #{headerVO.userId}
+          and merchant_id = #{headerVO.merchantId}
+          and password = #{oldPwd}
+    </select>
 
 </mapper>

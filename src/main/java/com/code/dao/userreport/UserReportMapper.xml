@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.code.dao.userreport.UserReportMapper">
+
+    <select id="getUserReport" resultType="UserReportVO">
+        select ulr.billing_order as totalBet,
+               ulr.prize         as totalWin,
+               umr.recharge      as totalRecharge,
+               umr.withdrawals   as totalWithdrawal
+        from user_lottery_report as ulr
+                 INNER JOIN user_main_report as umr
+                            on umr.user_id = ulr.user_id and umr.time = ulr.time and umr.merchant_id = ulr.merchant_id
+        where umr.user_id = #{headerVO.userId}
+          and umr.merchant_id = #{headerVO.merchantId}
+          and umr.time = #{day}
+    </select>
+
+</mapper>

@@ -1,5 +1,7 @@
 package com.code.bean.vo.outobj;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -10,6 +12,7 @@ import java.io.Serializable;
  * @author: zeng
  * @since: 2020-03-18
  */
+@Data
 public class UserBankCardVO implements Serializable {
     private Integer id;
     private String userName;//持卡人
