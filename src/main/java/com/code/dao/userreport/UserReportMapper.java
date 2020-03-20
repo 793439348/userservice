@@ -2,6 +2,7 @@ package com.code.dao.userreport;
 
 import com.code.bean.vo.HeaderVO;
 import com.code.bean.vo.outobj.UserReportVO;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -12,6 +13,7 @@ import org.apache.ibatis.annotations.Param;
  * @author: zeng
  * @since: 2020-03-19
  */
+@Mapper
 public interface UserReportMapper {
 
     UserReportVO getUserReport(@Param("headerVO")HeaderVO headerVO,

@@ -2,6 +2,7 @@ package com.code.service;
 
 import com.code.bean.vo.HeaderVO;
 import com.code.bean.vo.inputobj.AddBankCardVO;
+import com.code.bean.vo.inputobj.WithdrawVO;
 
 /**
  * <p>
@@ -13,8 +14,8 @@ import com.code.bean.vo.inputobj.AddBankCardVO;
  */
 public interface BankCardService {
     /*会员提现申请*/
-    void withdraw(HeaderVO headerVO) throws Exception;
+    void withdraw(WithdrawVO withdrawVO) throws Exception;
 
     /*会员添加银行卡*/
-    void addBankCard(HeaderVO headerVO, AddBankCardVO addBankCardVO) throws Exception;
+    void addBankCard(AddBankCardVO addBankCardVO) throws Exception;
 }

@@ -3,6 +3,7 @@ package com.code.dao.usercard;
 import com.code.bean.pojo.UserCard;
 import com.code.bean.vo.HeaderVO;
 import com.code.bean.vo.inputobj.AddBankCardVO;
+import com.code.bean.vo.outobj.UserBankCardVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -19,8 +20,11 @@ import java.util.List;
 public interface UserCardMapper {
 
     /*获取银行卡列表*/
-    List<UserCard> getUserCardList(HeaderVO headerVO)throws Exception;
+    List<UserBankCardVO> getUserCardList(HeaderVO headerVO)throws Exception;
 
     /*添加银行卡列表*/
     int addBankCard(AddBankCardVO addBankCardVO)throws Exception;
+
+    /*根据银行卡id获取卡信息*/
+    UserCard getUserCardById(Integer id);
 }

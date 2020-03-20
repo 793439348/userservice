@@ -24,12 +24,23 @@
         where id=#{headerVO.userId} and merchant_id=#{headerVO.merchantId}
     </update>
 
+    <select id="getUser" parameterType="HeaderVO" resultType="User">
+        select *
+        from user where id=#{userId} and merchant_id=#{merchantId}
+    </select>
+
     <select id="getOldPwd" resultType="string">
         select password
         from user
-        where id = #{headerVO.userId}
-          and merchant_id = #{headerVO.merchantId}
-          and password = #{oldPwd}
+        where id = #{userId}
+          and merchant_id = #{merchantId}
+    </select>
+
+    <select id="getPhone" resultType="string">
+        select phone
+        from user
+        where id = #{userId}
+          and merchantId = #{merchant_id}
     </select>
 
 </mapper>

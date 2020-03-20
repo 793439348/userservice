@@ -23,7 +23,7 @@ import java.util.List;
  * @author: zeng
  * @since: 2020-03-19
  */
-@Service
+@Service("userSelectService")
 public class UserSelectServiceImpl implements UserSelectService {
     @Autowired
     private UserReportMapper userReportMapper;
@@ -41,21 +41,25 @@ public class UserSelectServiceImpl implements UserSelectService {
 
     @Override
     public UserReportVO getUserReport(HeaderVO headerVO, String day) throws Exception {
-        return null;
+        UserReportVO userReport = userReportMapper.getUserReport(headerVO, day);
+        return userReport;
     }
 
     @Override
     public List<UserMsgVO> getUserMsgList(HeaderVO headerVO, Integer page, Integer pageSize) throws Exception {
-        return null;
+        List<UserMsgVO> userMsgList = userMsgMapper.getUserMsgList(headerVO, page, pageSize);
+        return userMsgList;
     }
 
     @Override
     public List<UserBillVO> getUserAcclogList(UserAcclogVO userAcclog) throws Exception {
-        return null;
+        List<UserBillVO> userBillList = userBillMapper.getUserBillList(userAcclog);
+        return userBillList;
     }
 
     @Override
     public List<UserBankCardVO> getUserBankList(HeaderVO headerVO) throws Exception {
-        return null;
+        List<UserBankCardVO> userCardList = userCardMapper.getUserCardList(headerVO);
+        return userCardList;
     }
 }

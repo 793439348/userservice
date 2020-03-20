@@ -2,10 +2,7 @@ package com.code.controller;
 
 import com.code.bean.dto.Dto;
 import com.code.bean.vo.HeaderVO;
-import com.code.bean.vo.inputobj.AddBankCardVO;
-import com.code.bean.vo.inputobj.ResetPwdVO;
-import com.code.bean.vo.inputobj.SetWithdrawPwdVO;
-import com.code.bean.vo.inputobj.UserAcclogVO;
+import com.code.bean.vo.inputobj.*;
 import com.code.bean.vo.outobj.UserBankCardVO;
 import com.code.bean.vo.outobj.UserBillVO;
 import com.code.bean.vo.outobj.UserMsgVO;
@@ -66,6 +63,15 @@ public class UserController {
         return Dto.returnDto(0, null, userAcclogList);
     }
 
+    @RequestMapping("/changeHead")
+    public Dto changeHead(@RequestHeader("merchantId") Integer merchantId,
+                          @RequestHeader("userId") Integer userId,
+                          String head) throws Exception {
+        userUpdateService.changeHead(new HeaderVO(merchantId,userId),head);
+        return Dto.returnDto(0, null, null);
+    }
+
+
     @RequestMapping(value = "/changeNickName", method = RequestMethod.POST)
     public Dto changeNickName(@RequestHeader("merchantId") Integer merchantId,
                               @RequestHeader("userId") Integer userId,
@@ -90,25 +96,28 @@ public class UserController {
         return Dto.returnDto(0, null, null);
     }
 
-    @RequestMapping(value = "/resetPwd", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/resetPwd", method = RequestMethod.POST)
     public Dto resetPwd(@RequestHeader("merchantId") Integer merchantId,
                         @RequestHeader("userId") Integer userId,
                         ResetPwdVO resetPwdVO) throws Exception {
         userUpdateService.resetPwd(new HeaderVO(merchantId, userId), resetPwdVO);
         return Dto.returnDto(0, null, null);
-    }
+    }*/
 
     @RequestMapping(value = "/setWithdrawPwd", method = RequestMethod.POST)
     public Dto setWithdrawPwd(@RequestHeader("merchantId") Integer merchantId,
                               @RequestHeader("userId") Integer userId,
                               SetWithdrawPwdVO setWithdrawPwdVO) throws Exception {
-        userUpdateService.setWithdrawPwd(new HeaderVO(merchantId, userId), setWithdrawPwdVO);
+        setWithdrawPwdVO.setHeaderVO(new HeaderVO(merchantId, userId));
+        userUpdateService.setWithdrawPwd(setWithdrawPwdVO);
         return Dto.returnDto(0, null, null);
     }
 
     @RequestMapping(value = "/withdraw", method = RequestMethod.POST)
-    public Dto withdraw() {
-
+    public Dto withdraw(@RequestHeader("merchantId") Integer merchantId,
+                        @RequestHeader("userId") Integer userId,
+                        WithdrawVO withdrawVO) throws Exception {
+        bankCardService.withdraw(withdrawVO);
         return Dto.returnDto(0, null, null);
     }
 
@@ -124,7 +133,8 @@ public class UserController {
     public Dto addBankCard(@RequestHeader("merchantId") Integer merchantId,
                            @RequestHeader("userId") Integer userId,
                            AddBankCardVO addBankCardVO) throws Exception {
-        bankCardService.addBankCard(new HeaderVO(merchantId, userId), addBankCardVO);
+        addBankCardVO.setHeaderVO(new HeaderVO(merchantId, userId));
+        bankCardService.addBankCard(addBankCardVO);
         return Dto.returnDto(0, null, null);
     }
 

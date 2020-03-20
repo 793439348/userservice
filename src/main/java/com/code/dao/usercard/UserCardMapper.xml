@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.code.dao.usercard.UserCardMapper">
 
-    <select id="getUserCardList" resultType="UserCard" parameterType="HeaderVO">
-        select *
+    <select id="getUserCardList" resultType="UserBankCardVO" parameterType="HeaderVO">
+        select id,card_name as userName,bank_branch as bankName, card_id as bankCode
         from user_card
         where user_id = #{userId}
           and merchant_id = #{merchantId}
@@ -13,4 +13,9 @@
         insert into user_card
         values (0, #{headerVO.userId}, #{bankId}, #{bankPlace}, #{userName}, #{bankCode}, 0, #{time}, null, 0, #{headerVO.merchantId})
     </insert>
+
+    <select id="getUserCardById" resultType="UserCard" parameterType="integer">
+        select * from user_card
+        where id=#{id}
+    </select>
 </mapper>

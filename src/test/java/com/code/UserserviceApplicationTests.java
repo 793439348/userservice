@@ -12,12 +12,18 @@ import com.code.dao.userbill.UserBillMapper;
 import com.code.dao.usercard.UserCardMapper;
 import com.code.dao.usermsg.UserMsgMapper;
 import com.code.dao.userreport.UserReportMapper;
+import com.code.service.UserSelectService;
+import com.code.service.UserSelectServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -68,8 +74,15 @@ class UserserviceApplicationTests {
     @Autowired
     UserCardMapper userCardMapper;
 
+    @Autowired
+    UserSelectService userSelectService;
+
     @Test
     void test05() throws Exception{
+//        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+//        System.out.println(LocalDateTime.parse("2020-03-20 15:43:00", dtf).isAfter(LocalDateTime.now()));
+
+        System.out.println(new BigDecimal(50));
 
     }
 

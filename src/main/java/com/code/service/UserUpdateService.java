@@ -26,11 +26,11 @@ public interface UserUpdateService {
     /*会员修改密码*/
     void changePwd(HeaderVO headerVO,String oldPwd,String newPwd) throws Exception;
 
-    /*会员重置密码*/
-    void resetPwd(HeaderVO headerVO, ResetPwdVO resetPwdVO) throws Exception;
+    /*会员重置密码*//*
+    void resetPwd(ResetPwdVO resetPwdVO) throws Exception;*/
 
     /*会员设置提现密码*/
-    void setWithdrawPwd(HeaderVO headerVO, SetWithdrawPwdVO setWithdrawPwdVO) throws Exception;
+    void setWithdrawPwd(SetWithdrawPwdVO setWithdrawPwdVO) throws Exception;
 
 
 }

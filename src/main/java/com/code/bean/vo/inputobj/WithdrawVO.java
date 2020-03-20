@@ -4,6 +4,7 @@ import com.code.bean.vo.HeaderVO;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * <p>
@@ -17,6 +18,6 @@ import java.io.Serializable;
 public class WithdrawVO implements Serializable {
     private HeaderVO headerVO;
     private Integer bankCardId; //银行卡id
-    private Integer amount; //提现金额
+    private BigDecimal amount; //提现金额
     private String withdrawPwd;//提现密码
 }
