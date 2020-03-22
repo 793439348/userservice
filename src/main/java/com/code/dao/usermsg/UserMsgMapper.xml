@@ -5,7 +5,7 @@
     <select id="getUserMsgList" resultType="UserMsgVO">
         select type,time,title,content,extra
         from user_msg
-        where user_id=#{headerVO.userId} and merchant_id=#{headerVO.merchantId}
+        where user_id=#{userId} and merchant_id=#{merchantId}
               limit ${page},${pageSize};
     </select>
 

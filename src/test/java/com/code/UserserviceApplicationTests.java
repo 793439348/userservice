@@ -1,9 +1,6 @@
 package com.code;
 
-import com.code.bean.vo.HeaderVO;
 import com.code.bean.vo.inputobj.UserAcclogVO;
-import com.code.bean.vo.inputobj.AddBankCardVO;
-import com.code.bean.vo.inputobj.UserVO;
 import com.code.bean.vo.outobj.UserBillVO;
 import com.code.bean.vo.outobj.UserMsgVO;
 import com.code.bean.vo.outobj.UserReportVO;
@@ -12,18 +9,17 @@ import com.code.dao.userbill.UserBillMapper;
 import com.code.dao.usercard.UserCardMapper;
 import com.code.dao.usermsg.UserMsgMapper;
 import com.code.dao.userreport.UserReportMapper;
-import com.code.service.UserSelectService;
-import com.code.service.UserSelectServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.annotation.Resource;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -36,7 +32,6 @@ class UserserviceApplicationTests {
     @Test
     void contextLoads() throws Exception {
         UserAcclogVO userAcclogVO = new UserAcclogVO();
-        userAcclogVO.setHeaderVO(new HeaderVO(1,2));
         userAcclogVO.setStartTime("2018-10-07 11:58:19");
         userAcclogVO.setEndTime("2018-10-09 11:58:19");
         userAcclogVO.setPageSize(100);
@@ -50,8 +45,6 @@ class UserserviceApplicationTests {
 
     @Test
     void test02() throws Exception{
-        UserReportVO userReport = userReportMapper.getUserReport(new HeaderVO(1, 2), "2018-10-08");
-        System.out.println(userReport);
     }
 
     @Autowired
@@ -59,8 +52,6 @@ class UserserviceApplicationTests {
 
     @Test
     void test03() throws Exception{
-        List<UserMsgVO> userMsgList = userMsgMapper.getUserMsgList(new HeaderVO(1, 2), 0, 10);
-        userMsgList.forEach(userMsg -> System.out.println(userMsg));
     }
 
     @Autowired
@@ -68,14 +59,21 @@ class UserserviceApplicationTests {
 
     @Test
     void test04() throws Exception{
+       /* DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        boolean before = LocalDateTime.parse("2020-3-23 00:00:00", dtf).isBefore(LocalDateTime.now());
+        System.out.println(before);*/
 
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        Date parse = sdf.parse(sdf.format(new Date()));
+        System.out.println( parse.getTime());
+        System.out.println(new Date().getTime());
+        System.out.println(System.currentTimeMillis());
     }
 
     @Autowired
     UserCardMapper userCardMapper;
 
-    @Autowired
-    UserSelectService userSelectService;
 
     @Test
     void test05() throws Exception{

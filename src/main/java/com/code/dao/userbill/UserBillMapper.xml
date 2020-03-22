@@ -5,7 +5,7 @@
     <select id="getUserBillList" parameterType="UserAcclogVO" resultType="UserBillVO">
         select billno,type,money,before_money,after_money,time,remarks
         from user_bill
-        where user_id=#{headerVO.userId} and merchant_id=#{headerVO.merchantId}
+        where user_id=#{userId} and merchant_id=#{merchantId}
         and time between #{startTime} and #{endTime}
         <if test=" type!=null and type!='' ">
             and type = #{type}

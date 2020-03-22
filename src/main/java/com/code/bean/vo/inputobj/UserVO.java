@@ -1,6 +1,5 @@
 package com.code.bean.vo.inputobj;
 
-import com.code.bean.vo.HeaderVO;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -15,7 +14,8 @@ import java.io.Serializable;
  */
 @Data
 public class UserVO implements Serializable {
-    private HeaderVO headerVO;
+    private Integer merchantId;
+    private Integer userId;
     private String head;
     private String nikeName;
     private String phone;

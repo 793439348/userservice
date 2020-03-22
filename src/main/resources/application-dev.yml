@@ -1,7 +1,7 @@
 
 #jedis配置信息
 jedis:
-  host: 192.168.0.108     # Redis服务器地址
+  host: 192.168.137.130     # Redis服务器地址
   port: 6379              # Redis服务器连接端口
   #  password: 123456             # Redis服务器连接密码（默认为空）
   timeout: 0              # 连接超时时间（毫秒）
@@ -15,8 +15,8 @@ jedis:
 spring:
   datasource:
     username: root
-    password: root
-    url: jdbc:mysql://192.168.0.108:3306/ecai?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
+    password: 123456
+    url: jdbc:mysql://192.168.137.135:3306/ecai?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 #mybatis配置

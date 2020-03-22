@@ -1,6 +1,5 @@
 package com.code.bean.vo.inputobj;
 
-import com.code.bean.vo.HeaderVO;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -17,14 +16,15 @@ import java.util.Date;
  */
 @Data
 public class AddBankCardVO implements Serializable {
-    private HeaderVO headerVO;
+    private Integer merchantId;
+    private Integer userId;
     private String userName;//持卡人
     private Integer bankId;//银行卡列表中的id
     private String bankCode;//卡号
     private String bankPlace;//支行名称
     private String time;
 
-    public String getTime() {
-        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-    }
+//    public String getTime() {
+//        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+//    }
 }

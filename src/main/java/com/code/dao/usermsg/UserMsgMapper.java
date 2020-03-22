@@ -1,6 +1,5 @@
 package com.code.dao.usermsg;
 
-import com.code.bean.vo.HeaderVO;
 import com.code.bean.vo.outobj.UserMsgVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -20,7 +19,8 @@ public interface UserMsgMapper {
 
     /*分页查询个人消息*/
     List<UserMsgVO> getUserMsgList(
-            @Param("headerVO")HeaderVO headerVO,
+            @Param("merchantId") Integer merchantId,
+            @Param("userId") Integer userId,
             @Param("page") Integer page,
             @Param("pageSize") Integer pageSize) throws Exception;
 

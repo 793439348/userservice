@@ -1,9 +1,9 @@
 package com.code.dao.user;
 
 import com.code.bean.pojo.User;
-import com.code.bean.vo.HeaderVO;
 import com.code.bean.vo.inputobj.UserVO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -20,12 +20,15 @@ public interface UserMapper {
     int modifyUserInfo(UserVO user) throws Exception;
 
     /*获取用户信息*/
-    User getUser(HeaderVO headerVO)throws Exception;
+    User getUser(@Param("merchantId") Integer merchantId,
+                 @Param("userId") Integer userId) throws Exception;
 
     /*查询原密码*/
-    String getOldPwd(HeaderVO headerVO) throws Exception;
+    String getOldPwd(@Param("merchantId") Integer merchantId,
+                     @Param("userId") Integer userId) throws Exception;
 
     /*获取手机号*/
-    String getPhone(HeaderVO headerVO) throws Exception;
+    String getPhone(@Param("merchantId") Integer merchantId,
+                    @Param("userId") Integer userId) throws Exception;
 
 }

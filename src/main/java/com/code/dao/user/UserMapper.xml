@@ -21,10 +21,10 @@
                 withdraw_password=#{withdrawPwd},
             </if>
         </trim>
-        where id=#{headerVO.userId} and merchant_id=#{headerVO.merchantId}
+        where id=#{userId} and merchant_id=#{merchantId}
     </update>
 
-    <select id="getUser" parameterType="HeaderVO" resultType="User">
+    <select id="getUser" resultType="User">
         select *
         from user where id=#{userId} and merchant_id=#{merchantId}
     </select>
@@ -40,7 +40,7 @@
         select phone
         from user
         where id = #{userId}
-          and merchantId = #{merchant_id}
+          and merchant_id = #{merchantId}
     </select>
 
 </mapper>

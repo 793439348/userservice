@@ -1,6 +1,5 @@
 package com.code.bean.vo.inputobj;
 
-import com.code.bean.vo.HeaderVO;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -15,7 +14,8 @@ import java.io.Serializable;
  */
 @Data
 public class UserAcclogVO implements Serializable {
-    private HeaderVO headerVO;
+    private Integer merchantId;
+    private Integer userId;
     private String startTime;   // 查询开始日期
     private String endTime;     // 查询结束日期
     private Integer type;       // 类别（空则全部）

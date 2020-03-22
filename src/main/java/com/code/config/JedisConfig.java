@@ -46,7 +46,7 @@ public class JedisConfig {
         jedisPoolConfig.setMaxWaitMillis(maxWaitMillis);
         jedisPoolConfig.setMaxTotal(maxActive);
         jedisPoolConfig.setMinIdle(minIdle);
-        JedisPool jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout, null);
+        JedisPool jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout, "123456");
         log.info("redis配置信息，地址：[{}],端口：[{}]", host, port);
         return jedisPool;
     }

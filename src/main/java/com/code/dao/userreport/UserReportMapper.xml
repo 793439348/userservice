@@ -10,8 +10,8 @@
         from user_lottery_report as ulr
                  INNER JOIN user_main_report as umr
                             on umr.user_id = ulr.user_id and umr.time = ulr.time and umr.merchant_id = ulr.merchant_id
-        where umr.user_id = #{headerVO.userId}
-          and umr.merchant_id = #{headerVO.merchantId}
+        where umr.user_id = #{userId}
+          and umr.merchant_id = #{merchantId}
           and umr.time = #{day}
     </select>
 

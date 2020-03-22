@@ -1,6 +1,5 @@
 package com.code.dao.userreport;
 
-import com.code.bean.vo.HeaderVO;
 import com.code.bean.vo.outobj.UserReportVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -16,6 +15,7 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface UserReportMapper {
 
-    UserReportVO getUserReport(@Param("headerVO")HeaderVO headerVO,
+    UserReportVO getUserReport(@Param("merchantId") Integer merchantId,
+                               @Param("userId") Integer userId,
                                @Param("day") String day)throws Exception;
 }

@@ -1,6 +1,5 @@
 package com.code.bean.vo.inputobj;
 
-import com.code.bean.vo.HeaderVO;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -16,7 +15,8 @@ import java.math.BigDecimal;
  */
 @Data
 public class WithdrawVO implements Serializable {
-    private HeaderVO headerVO;
+    private Integer merchantId;
+    private Integer userId;
     private Integer bankCardId; //银行卡id
     private BigDecimal amount; //提现金额
     private String withdrawPwd;//提现密码
